@@ -1,41 +1,65 @@
 #include <iostream>
 #include <AstUtils.h>
+#include <cmath>
 
 using namespace std;
 
-#define NUM_PRIMES 10000
 //https://en.wikipedia.org/wiki/Primality_test
 
 bool IsPrime(int n) {
 
-    if (n == 2 || n == 3)
-        return true;
+    // Es muss nur zwischen den Faktoren 2 -> Wurzel von n getested werden
+    // Auch alle geraden Faktoren > 2 fallen weg
 
-    if (n <= 1 || n % 2 == 0 || n % 3 == 0)
-        return false;
+    if (n == 2 || n == 3) return true;
 
-    for (int i = 5; i * i <= n; i += 6)
+    if (n <= 1 || n % 2 == 0) return false;
+
+    for (int i = 3; i*i <= n; i += 2)
     {
-        if (n % i == 0 || n % (i + 2) == 0)
-            return false;
+        if (n % i == 0) return false;
     }
 
     return true;
     // TODO test if n is prime
 }
 
-void CalcPrimes(?) {
+void CalcPrimes(int* array, int length) {
+
+    int a=5;
+    for( int i=0; i<length;i++){
+
+        while(!IsPrime(a)){
+            a=+2;
+        }
+        array[i] = a;
+    }
+
 // TODO determine prime numbers
 }
 
-void PrintPrimes(?) {
-// TODO print prime numbers.
+void PrintPrimes(int* array, int length) {
+
+    for (int i = 0; i >= length; i++){
+        cout << array[i];
+    }
+
+
 }
 
 int main()
 {
     // Print version information of ASTU.
     SayVersion();
+
+    int length;
+    std::cin >> length;
+
+    int* array = new int[length];
+    CalcPrimes(array, length);
+    PrintPrimes(array, length);
+
+    delete[] array;
 
     return 0;
 }
