@@ -1,5 +1,4 @@
 #include <iostream>
-#include <AstUtils.h>
 #include <cmath>
 
 using namespace std;
@@ -30,9 +29,10 @@ void CalcPrimes(int* array, int length) {
     for( int i=0; i<length;i++){
 
         while(!IsPrime(a)){
-            a=+2;
+            a+=2;
         }
         array[i] = a;
+        a+=2;
     }
 
 // TODO determine prime numbers
@@ -40,8 +40,8 @@ void CalcPrimes(int* array, int length) {
 
 void PrintPrimes(int* array, int length) {
 
-    for (int i = 0; i >= length; i++){
-        cout << array[i];
+    for (int i = 0; i < length; i++){
+        cout << array[i]<< endl;
     }
 
 
@@ -50,7 +50,6 @@ void PrintPrimes(int* array, int length) {
 int main()
 {
     // Print version information of ASTU.
-    SayVersion();
 
     int length;
     std::cin >> length;
