@@ -15,5 +15,6 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/astu astu)
 #add_subdirectory(${PROJECT_SOURCE_DIR}/PROJECT_DIRECTORY BUILD_DIRECTORY)
 add_subdirectory(${PROJECT_SOURCE_DIR}/HelloWorld hello_world)
 add_subdirectory(${PROJECT_SOURCE_DIR}/HelloAstu hello_astu)
-add_subdirectory(${PROJECT_SOURCE_DIR}/Uebung1 ue1)
+add_subdirectory(${PROJECT_SOURCE_DIR}/Uebung1 uebung1)
+
 
