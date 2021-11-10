@@ -22,7 +22,11 @@ struct AudioData {
  * @return structure containing audio and format information
  */
 AudioData LoadAudioFile(const char filename[])
-{
+{   AudioData original{};
+
+    original.samples = ReadAudio(filename, original.numSamples, original.sampleRate, original.channels);
+
+    return original;
     // TODO use `ReadAudio` function from ASTU to load audio file and
     // Check for errors and return nullptr or initialize data of
     // `AudioData` struct and return it.
@@ -111,6 +115,7 @@ int main()
         return -1;
     }
 
+    int delay = MillisecondsToSamples(ECHO_DELAY_MS, audio.sampleRate);
     // TODO calculate delay in samples
     // TODO extend audio
     // TODO add echo
