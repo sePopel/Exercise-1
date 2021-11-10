@@ -4,16 +4,13 @@
 
 using namespace std;
 
-bool IsPrime(int n) {
+bool IsPrime(int n, int* array) {
 
-    if (n == 2 || n == 3) return true;
+    if (n == 2) return true;
 
-    if (n <= 1 || n % 2 == 0 || n % 3 == 0) return false;
-
-    for (int i = 6; i*i <= n; i += 6){
-        if (n % (i - 1) == 0 || n % (i + 1) == 0) return false;
+    for (int i = 0; array[i]*array[i] <= n; i ++) {
+        if (n % array[i] == 0) return false;
     }
-
     return true;
 }
 
@@ -23,7 +20,7 @@ void CalcPrimes(int* array, int length) {
 
     for( int i=0; i<length;i++){
 
-        while(!IsPrime(a)){
+        while(!IsPrime(a,array)){
             a+=2;
         }
         array[i] = a;
@@ -34,7 +31,7 @@ void CalcPrimes(int* array, int length) {
 }
 
 void PrintPrime(int* array, int length) {
-    cout << array[length -1];
+    cout << array[length-1];
 }
 
 int main(){
